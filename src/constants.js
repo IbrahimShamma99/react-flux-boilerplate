@@ -7,7 +7,7 @@ const serverURL =
     : "";
 
 
-const ReCAPTCHA_Key = "";
+const ReCAPTCHA_Key = "FILL";
 const DELAY = 1500;
 
 export { assetsUrl, serverURL, ReCAPTCHA_Key, DELAY };
