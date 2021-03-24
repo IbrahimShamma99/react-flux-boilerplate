@@ -5,13 +5,9 @@ import LoadingIndicator from "../../components/LoadingIndicator/index";
 import ReCAPTCHA from "react-google-recaptcha";
 import "../../styles/bootstrap.css";
 import "../../styles/mdb.min.css";
-import "./main.css";
-import "./util.css";
-import "./select2.css";
-import "./animate.css";
-import "./login.css";
-import "./more.css";
-import "./select.min.css";
+import "../../styles/forms.css";
+
+
 
 const Login = ({ submit, ExternalError, message }) => {
   const [userState, setUserState] = useState({
