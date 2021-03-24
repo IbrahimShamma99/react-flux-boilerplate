@@ -1,0 +1,156 @@
+@font-face {
+  font-family: "Poppins-Black";
+  src: url("../../fonts/poppins/Poppins-Black.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-BlackItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Bold.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-BoldItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-ExtraBold.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-ExtraBoldItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-ExtraLightItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Italic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Light.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-LightItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Medium.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-MediumItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Regular.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-SemiBold.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-SemiBoldItalic.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-Thin.ttf") format("truetype"),
+    url("../../fonts/poppins/Poppins-ThinItalic.ttf") format("truetype");
+}
+
+body {
+  font-family: poppins-Regular, Montserrat, Helvetica, Arial, sans-serif !important;
+}
+.body-login {
+  background: url("../../images/Body-BG.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 0;
+}
+.body-login {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+.error-message {
+  color: #f00000;
+  align: center;
+}
+
+.card-login {
+  width: 600px;
+  margin: auto 0;
+  border-radius: 20px;
+  box-shadow: 0px 0px 50px 0px #000000;
+}
+
+.card-login .card-header {
+  background: unset;
+  border: unset;
+}
+
+.card-login .card-header .logo {
+  width: 150px;
+}
+
+.btn-turquoise {
+  background: #48c2c8;
+  color: #fff;
+}
+.btn-turquoise:hover,
+.btn-turquoise:focus,
+.btn-turquoise:active {
+  background: #333333;
+  color: #fff;
+}
+
+.btn-rounded {
+  border-radius: 30px;
+}
+
+a {
+  color: #48c2c8;
+}
+
+a:hover {
+  color: #333333;
+}
+
+.card-login .actions {
+  font-size: 14px;
+}
+
+.md-form input:not([type]):focus:not([readonly]),
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="password"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="email"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="url"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="time"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="date"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+.md-form
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="tel"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="number"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="search"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="phone"]:not(.browser-default):focus:not([readonly]),
+.md-form input[type="search-md"]:focus:not([readonly]),
+.md-form textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #48c2c8;
+  -webkit-box-shadow: 0 1px 0 0 #48c2c8;
+  box-shadow: 0 1px 0 0 #48c2c8;
+}
+
+.md-form input:not([type]):focus:not([readonly]) + label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+  input[type="password"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form
+  input[type="email"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+  input[type="datetime"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+  input[type="number"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form
+  input[type="search"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form
+  input[type="phone"]:not(.browser-default):focus:not([readonly])
+  + label,
+.md-form input[type="search-md"]:focus:not([readonly]) + label,
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
+  color: #48c2c8;
+}
+
+.text-muted {
+  color: #c2c2c2 !important;
+}
+.login-title {
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 54px;
+}

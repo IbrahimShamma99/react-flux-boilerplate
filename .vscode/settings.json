@@ -1,0 +1,4 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "liveServer.settings.port": 5501
+}

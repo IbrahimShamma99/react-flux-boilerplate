@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="../src/img/performIT-Icon.ico" />
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="perform your data" />
+  <link rel="stylesheet" href="../src/styles/bootstrap.css" />
+  <link rel="stylesheet" href="../src/styles/mdb.min.css" />
+  <link rel="stylesheet" href="../src/styles/compiled-4.19.2.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+
+
+
+
+  <link rel="apple-touch-icon" href="../src/img/performIT-Icon.ico" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <script src="https://i2ibasicvoice.azurewebsites.net/tts/js/i2i_BV_ES.js?key=rn3lvWzH"></script>
+
+
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>PerformIT</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+  <script crossorigin="anonymous" src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+  <script>
+
+    window.addEventListener('incomingActivity', ({ data }) => {
+      const cancelVoiceButton = document.getElementById("cancelvoice");
+      const phone_mic = document.getElementById("startRecognizeOnceAsyncButton");
+      const desktop_mic = document.getElementById("micButton");
+
+
+      cancelVoiceButton.addEventListener("click", function () {
+        i2i_BV.cancel();
+        cancelVoiceButton.style.display = "none";
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+          phone_mic.style.display = "flex";
+        }
+        else {
+          desktop_mic.style.display = "flex";
+        }
+      });
+      const type = data.type;
+      setTimeout(() => {
+        const GearIcon = document.getElementById("wrkng");
+        GearIcon.style.display = "none";
+      }, 3500);
+      if (data.attachments && !data.attachments.length) {
+        // console.log("RUN HERE");
+        if (data.from) {
+          switch (data.from.role) {
+            case "user":
+              //console.log("user");
+              break;
+            case "bot":
+              //console.log("bot");
+
+              let regex = new RegExp("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
+              if (regex.test(data.text)) {
+                // var txt_ara = newShakelha(data.text);
+                i2i_BV.speak(data.text, 'Arabic Female', {
+                  pitch: 1,
+                  onstart: function () {
+                    const cancelvoiceIcon = document.getElementById("cancelvoice");
+                    const phone_mic = document.getElementById("startRecognizeOnceAsyncButton");
+                    const desktop_mic = document.getElementById("micButton");
+                    cancelvoiceIcon.style.display = "flex";
+                    phone_mic.style.display = "none";
+                    desktop_mic.style.display = "none";
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                      cancelvoiceIcon.style.position = "absolute";
+                      cancelvoiceIcon.style.left = "77%";
+                      cancelvoiceIcon.style.top = "89%";
+                    }
+
+                    // $("#cancelvoice").show();
+                    var input1 = document.getElementsByClassName("webchat__send-box-text-box__input")[0];
+                    // if (isMobile()) {
+                    //     input1.style.width = '70%';
+                    // }
+                    // else {
+                    //     input1.style.width = '840px';
+                    // }
+                  },
+                  onend: function () {
+
+                    const cancelvoiceIcon = document.getElementById("cancelvoice");
+                    const phone_mic = document.getElementById("startRecognizeOnceAsyncButton");
+                    const desktop_mic = document.getElementById("micButton");
+
+                    cancelvoiceIcon.style.display = "none";
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                      phone_mic.style.display = "flex";
+                    }
+                    else {
+                      desktop_mic.style.display = " flex";
+                    }
+                    // $("#cancelvoice").hide();
+                    // console.log(".hide()");
+                  }
+                });
+
+
+
+                //  i2i_BV.speak(data.text, "Arabic Female", { onstart: voiceStartCallback(), onend: voiceEndCallback(), onerror: voiceErrCallback()});
+                //   i2i_BV.speak(data.text, "Arabic Female", { onstart: voiceStartCallback() });
+              }
+              else {
+                //  i2i_BV.speak(data.text, "UK English Female", { onstart: voiceStartCallback(), onend: voiceEndCallback(), onerror: voiceErrCallback()});
+                //i2i_BV.OnVoiceReady = function () {
+                console.log("OnVoiceReady");
+                i2i_BV.speak(data.text, 'UK English Female', {
+                  pitch: 1,
+                  onstart: function () {
+                    // $("#cancelvoice").show();
+                    //var input1 = document.getElementsByClassName("webchat__send-box-text-box__input")[0];
+                    //if (isMobile()) {
+                    //    input1.style.width = '70%';
+                    //}
+                    //else {
+                    //    input1.style.width = '840px';
+                    //}
+                  },
+                  onend: function () {
+                    // $("#cancelvoice").hide();
+                    // console.log(".hide()");
+                  }
+                });
+                //};
+              }
+              break;
+            default:
+              console.log(data.from.role)
+          }
+        }
+        else {
+          console.log("form not found")
+        }
+
+      }
+      //if (type === 'event' && data.channelData.data.dialogStatus) {
+      //    const status = data.channelData.data.dialogStatus;
+      //    const user = data.channelData.data.user;
+      //    console.log(`User '${user.name}', with an id of '${user.id}', reached the end of the dialog`);
+      //}
+    });
+  </script>
+
+</body>
+
+</html>
