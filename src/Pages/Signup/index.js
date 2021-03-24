@@ -1,4 +1,4 @@
-import Signup from "./signup";
+import Signup from "./page";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Store/User/user.actions";
 

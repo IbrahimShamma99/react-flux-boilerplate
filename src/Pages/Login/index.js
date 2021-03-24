@@ -1,4 +1,4 @@
-import Login from "./login";
+import Login from "./page";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Store/User/user.actions";
 
