@@ -5,7 +5,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import LoadingIndicator from '../../components/LoadingIndicator/index';
 import "../../styles/bootstrap.css";
 import "../../styles/mdb.min.css";
-import "./signup.css";
+import "./style.css";
 
 const Signup = ({ submit, message }) => {
   const [userData, setUserData] = useState({

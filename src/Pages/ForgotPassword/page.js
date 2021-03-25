@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import Routes from "../../routes";
 import "../../styles/bootstrap.css";
 import "../../styles/mdb.min.css";
-import "../Login/main.css";
-import "../Login/util.css";
-import "../Login/select2.css";
-import "../Login/animate.css";
-import "../Login/login.css";
-import "../Login/more.css";
-import "../Login/select.min.css";
+
+import "../../styles/forms.css";
+
 
 const ForgotPassword = ({ message, submit }) => {
   const [email, setEmail] = useState("");
